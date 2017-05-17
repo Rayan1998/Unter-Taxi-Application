@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:LocalUnterTaxiApp"
              x:Class="LocalUnterTaxiApp.MainPage">
 
-	<Label Text="Welcome to Xamarin Forms!" 
+	<Label Text="Welcome to Xamarin Forms! This is the dev branch!!!" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
 
