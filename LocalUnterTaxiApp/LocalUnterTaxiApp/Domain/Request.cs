@@ -38,9 +38,8 @@ namespace LocalUnterTaxiApp.Domain
             set { to_Location = value; }
         }
 
-        public Request(int req_ID, int cust_ID, string from_loc, string to_loc)
+        public Request( int cust_ID, string from_loc, string to_loc)
         {
-            this.request_ID = req_ID;
             this.customer_ID = cust_ID;
             this.from_Location = from_loc;
             this.to_Location = to_loc;
