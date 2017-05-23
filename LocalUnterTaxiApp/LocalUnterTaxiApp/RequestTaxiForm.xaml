@@ -19,7 +19,7 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
-                <Button Text="Order Taxi" TextColor="Black" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" Clicked=""/>
+                <Button Text="Order Taxi" TextColor="Black" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" Clicked="Button_Clicked"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>
