@@ -25,6 +25,8 @@
       <DependentUpon>RequestTaxiForm.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)RestService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestServiceTester.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml">

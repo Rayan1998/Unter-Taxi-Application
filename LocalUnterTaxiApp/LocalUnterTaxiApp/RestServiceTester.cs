@@ -1,26 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LocalUnterTaxiApp.Domain;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace LocalUnterTaxiApp
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class RequestTaxiForm : ContentPage
-	{
-		public RequestTaxiForm ()
-		{
-			InitializeComponent ();
-		}
+    public class RestServiceTester
+    {
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        public static async void Main(string[] args)
         {
             await callAddRest();
-            Console.WriteLine("Button clicked");
+
         }
         public static async Task callAddRest()
         {
