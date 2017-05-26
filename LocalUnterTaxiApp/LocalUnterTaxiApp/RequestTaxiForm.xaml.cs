@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+//Author: Rayan El Hajj
 namespace LocalUnterTaxiApp
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -21,23 +22,21 @@ namespace LocalUnterTaxiApp
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await CallAddRest();
-            Console.WriteLine("Button clicked");
-            /* Request request = new Request(29, "from location", "to location");
-             JArray array = new JArray();
-             JValue customer_ID = new JValue(request.Customer_ID);
-             JValue from_Location = new JValue(request.From_Location);
-             JValue to_Location = new JValue(request.To_Location);
-             array.Add( customer_ID );
-             array.Add( from_Location);
-             array.Add(to_Location);
-             Console.WriteLine( array.ToString());*/
+            await CallAddRest(); 
+            Console.WriteLine("Button clicked");//only for debugging purposes 
         }
+
+        /**
+         * creates instance of RestService class & invokes proper posting method 
+         * this method has to be at least asynch
+         */
         public static async Task CallAddRest()
         {
-            Request request = new Request(2, "from location", "to location");
+            Request request = new Request(2, "from location", "to location");//to be removed in future enhancment, shld be replaced with a form filled by user
+            //create instance of the HTTP  client class
             RestService restService = new RestService();
-            await restService.SaveToItemAsync(request);
+            //calling the post method on the created instance of the class 
+            await restService.PostRequestAsync(request);
         }
     }
 }
