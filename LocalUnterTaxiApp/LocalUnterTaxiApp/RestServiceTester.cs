@@ -18,7 +18,7 @@ namespace LocalUnterTaxiApp
         {
             Request request = new Request(2, "from location", "to location");
             RestService restService = new RestService();
-            await restService.SaveToItemAsync(request, true);
+            await restService.SaveToItemAsync(request);
         }
     }
 }
