@@ -89,5 +89,9 @@ namespace LocalUnterTaxiApp.Domain
             Preffered_Brand = preferred_brand;
             
         }
+        public Customer()
+        {
+
+        }
     }
 }
