@@ -9,43 +9,43 @@
             <StackLayout>
                 <Label Text="Register" TextColor="White" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Start" HorizontalOptions="Center"/>
                 <Grid RowSpacing="50" ColumnSpacing="30" HorizontalOptions="Center" VerticalOptions="Center">
-                <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Label Text="First Name" TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
-            <Entry TextColor="White" PlaceholderColor="White" Grid.Row="0" Grid.Column="1"/>
-                <Label Text="Last Name" TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="1" Grid.Column="0"/>
-            <Entry TextColor="White" PlaceholderColor="White" Grid.Row="1" Grid.Column="1"/>
-                <Label Text="E-mail" TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="2" Grid.Column="0"/>
-            <Entry TextColor="White" PlaceholderColor="White" Grid.Row="2" Grid.Column="1"/>
-                <Label Text="Username" TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="3" Grid.Column="0"/>
-            <Entry TextColor="White" PlaceholderColor="White" Grid.Row="3" Grid.Column="1"/>
-                <Label Text="Password" TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="4" Grid.Column="0"/>
-            <Entry TextColor="White" PlaceholderColor="White" IsPassword="True" Grid.Row="4" Grid.Column="1"/>
-                <Label Text="Phone Number" TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="5" Grid.Column="0"/>
-            <Entry TextColor="White" PlaceholderColor="White" Grid.Row="5" Grid.Column="1"/>
-                <Label Text="Preffered Brand" TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="6" Grid.Column="0"/>
-            <Picker x:Name="BrandPicker" Title="Select a Brand" Grid.Row="6" Grid.Column="1">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Audi</x:String>
-                        <x:String>Mercedes</x:String>
-                        <x:String>BMW</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-                <Button Text="Register" TextColor="Black" BorderColor="White" BackgroundColor="White" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" />
-        </Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="First Name" TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
+                    <Entry x:Name="fName" TextColor="Black" BackgroundColor="White" PlaceholderColor="White" Grid.Row="0" Grid.Column="1"/>
+                    <Label Text="Last Name" TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="1" Grid.Column="0"/>
+                    <Entry x:Name="lName" TextColor="Black" BackgroundColor="White" PlaceholderColor="White" Grid.Row="1" Grid.Column="1"/>
+                    <Label Text="E-mail" TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="2" Grid.Column="0"/>
+                    <Entry x:Name="e_Mail" TextColor="Black" BackgroundColor="White" PlaceholderColor="White" Grid.Row="2" Grid.Column="1"/>
+                    <Label Text="Username" TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="3" Grid.Column="0"/>
+                    <Entry x:Name="userName" TextColor="Black" BackgroundColor="White" PlaceholderColor="White" Grid.Row="3" Grid.Column="1"/>
+                    <Label Text="Password" TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="4" Grid.Column="0"/>
+                    <Entry x:Name="passWord" TextColor="Black" BackgroundColor="White" PlaceholderColor="White" IsPassword="True" Grid.Row="4" Grid.Column="1"/>
+                    <Label Text="Phone Number" TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="5" Grid.Column="0"/>
+                    <Entry x:Name="phoneNb" TextColor="Black" BackgroundColor="White" PlaceholderColor="White" Grid.Row="5" Grid.Column="1"  />
+                    <Label Text="Preffered Brand" TextColor="White" FontSize="Medium" FontAttributes="Bold" Grid.Row="6" Grid.Column="0"/>
+                    <Picker x:Name="BrandPicker" Title="Select a Brand" Grid.Row="6" Grid.Column="1">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Audi</x:String>
+                                <x:String>Mercedes</x:String>
+                                <x:String>BMW</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Button Text="Register" TextColor="Black" BorderColor="White" BackgroundColor="White" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Clicked="Register_Btn_Clicked" />
+                </Grid>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
