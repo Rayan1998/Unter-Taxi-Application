@@ -62,15 +62,31 @@ namespace LocalUnterTaxiApp.Domain
             set { preffered_Brand = value; }
         }
 
+        private int priority;
 
-        public Customer(string f_name, string l_name, string e_mail, string pass, string phone_NB, string preferred_brand)
+        public int Priority
         {
-            fName = f_name;
-            lName = l_name;
-            email=  e_mail;
-            password = pass;
-            phoneNb = phone_NB;
-            preffered_Brand = preferred_brand;
+            get { return priority; }
+            set { priority = value; }
+        }
+
+        private string username;
+
+        public string Username
+        {
+            get { return username; }
+            set { username = value; }
+        }
+
+        public Customer(string f_name, string l_name, string e_mail,string username, string pass, string phone_NB, string preferred_brand)
+        {
+            FName = f_name;
+            LName = l_name;
+            Email=  e_mail;
+            Username = username;
+            Password = pass;
+            PhoneNB = phone_NB;
+            Preffered_Brand = preferred_brand;
             
         }
     }
