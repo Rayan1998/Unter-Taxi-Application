@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LocalUnterTaxiApp.RequestTaxiForm"
+             BackgroundImage="taxi.jpg">
+    <!--this content page is to get the user input required to place a request for a taxi in the Unter Taxi Application -->
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Unter Taxi Application" FontFamily="Calibri" TextColor="Black" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Start"/>
+        <Grid VerticalOptions="Center" HorizontalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+                <Button Text="Order Taxi" TextColor="Black" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" Clicked="Button_Clicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>
