@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LocalUnterTaxiApp.Domain
 {
-    class Request
+    public class Request
     {
         private int request_ID;
 
@@ -43,6 +43,11 @@ namespace LocalUnterTaxiApp.Domain
             this.customer_ID = cust_ID;
             this.from_Location = from_loc;
             this.to_Location = to_loc;
+        }
+
+        public Request()
+        {
+
         }
 
     }

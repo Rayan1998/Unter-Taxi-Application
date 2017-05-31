@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LocalUnterTaxiApp.previousRequestsPage">
+
+    <ContentPage.Content>
+        <StackPanel x:Name = "previousRequestsPanel" Orientation = "Horizontal" Margin = "50, 50, 0, 0" ItemsSource="{Binding Requests}">
+            <Label Content = "Request1"/>
+            <Label Content = "Request1"/>
+            <Label Content = "Request1"/>
+            <Label Content = "Request1"/>
+            <Label Content = "Request1"/>
+            <Label Content = "Request1"/>
+            <Label Content = "Request1"/>
+            <Button Content = "Button 1" Width = "100" Height = "40" Margin = "10" />
+            <Button Content = "Button 2" Width = "100" Height = "40" Margin = "10" />
+            <RadioButton Content = "Radio Button 1" Width = "100"  Margin = "10" />
+            <RadioButton Content = "Radio Button 2" Width = "100"  Margin = "10" />
+            <RadioButton Content = "Radio Button 3" Width = "100"  Margin = "10" />
+            <CheckBox Content = "Check Box 1" Width = "100" Margin = "10" />
+            <CheckBox Content = "Check Box 2" Width = "100" Margin = "10" />
+        </StackPanel>
+    </ContentPage.Content>
+</ContentPage>
