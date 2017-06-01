@@ -93,8 +93,7 @@ namespace LocalUnterTaxiApp
             customer_json.Add("PhoneNb", phone_nb);
             customer_json.Add("Preferred_Brand", preferred_Brand);
 
-            Console.WriteLine("After custoer_json.Add(stuff)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
+            //Console.WriteLine("After custoer_json.Add(stuff)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");//for debugging purposes
 
             //adding the JValue objects to the JObject with the reference credentials_json
             credentials_json.Add("Email", email);
@@ -102,18 +101,17 @@ namespace LocalUnterTaxiApp
             credentials_json.Add("Password",password);
 
 
-            Console.WriteLine("After credentials_json.Add(stuff)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
-
+            //Console.WriteLine("After credentials_json.Add(stuff)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");//for debugging purposes
             //Console.WriteLine(credentials_json.ToString());//for debugging purposes
             //Console.WriteLine(customer_json.ToString());//for debugging purposes
 
             //adding the two objects to a third object
-            
+
             JObject objects_object = new JObject();
             objects_object.Add("Credentials", credentials_json);
             objects_object.Add("Customer", customer_json);
             //Console.WriteLine("After credentials_json.Add(stuff) and console writeing!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");//for debugging purposes
+            
             //getting the json string representation of the objects_object JObject 
             string json = objects_object.ToString(); 
             //Console.WriteLine(json);//for debugging purposes
