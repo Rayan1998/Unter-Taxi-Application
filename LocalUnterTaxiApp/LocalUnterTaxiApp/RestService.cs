@@ -17,13 +17,11 @@ namespace LocalUnterTaxiApp
     {
 
         HttpClient client;
-        private static string table_name;
-        private string  RestUrl = "http://360itsolutions.dk/RESTApi.php/" +table_name+"/";
-
+        
         public RestService()
         {
             client = new HttpClient();
-            client.MaxResponseContentBufferSize = 256000; //the MaxResponseContentBufferSize property is used to specify the max nb of bytes to buffer when reading the content in the HTTP response message
+            //client.MaxResponseContentBufferSize = 100000; //the MaxResponseContentBufferSize property is used to specify the max nb of bytes to buffer when reading the content in the HTTP response message
         }
 
         /**
@@ -33,8 +31,7 @@ namespace LocalUnterTaxiApp
          */
         public async Task PostRequestAsync(Request request)
         {
-            //string RestUrl = "http://360itsolutions.dk/RESTApi.php/Request/";
-            table_name = "Request";
+            string RestUrl = "http://360itsolutions.dk/RESTApi.php/request/";
             var uri = new Uri(RestUrl);
             //creating JValue objects with the request fields 
             //the JValue class represents a value in JSON
@@ -72,8 +69,10 @@ namespace LocalUnterTaxiApp
          */ 
         public async Task PostCustomerAsync(Customer customer)
         {
-            table_name = "Customer";
+            string RestUrl = "http://360itsolutions.dk/RESTApi.php/_customer/";
             var uri = new Uri(RestUrl);
+            //Console.WriteLine("Before Javalues!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"); //for debugging purpose
+
             //creating JValue objects with the customer fields 
             JValue f_name = new JValue(customer.FName);
             JValue l_name = new JValue(customer.LName);
@@ -82,34 +81,57 @@ namespace LocalUnterTaxiApp
             JValue password = new JValue(customer.Password);
             JValue phone_nb = new JValue(customer.PhoneNB);
             JValue preferred_Brand = new JValue(customer.Preffered_Brand);
+
+            //Console.WriteLine("After Javalues, before JObjects!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");//for debugging purposes
+
             //JObject represents a JSON object 
             JObject credentials_json = new JObject();
             JObject customer_json = new JObject();
+
+            //Console.WriteLine("After JObjecs!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"); //for debugging purposes
+
             //adding the JValue objects to the JObject with the reference customer_json
             customer_json.Add("FName", f_name);
             customer_json.Add("LName", l_name);
             customer_json.Add("PhoneNb", phone_nb);
             customer_json.Add("Preferred_Brand", preferred_Brand);
+
+            //Console.WriteLine("After custoer_json.Add(stuff)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");//for debugging purposes
+
             //adding the JValue objects to the JObject with the reference credentials_json
             credentials_json.Add("Email", email);
             credentials_json.Add("Username",username);
-            credentials_json.Add("Password");
+            credentials_json.Add("Password",password);
 
-            JArray objects_array = new JArray();
-            objects_array.Add(credentials_json);
-            objects_array.Add(customer_json);
 
-            string json = objects_array.ToString();
-            Console.WriteLine(json);
+            //Console.WriteLine("After credentials_json.Add(stuff)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");//for debugging purposes
+            //Console.WriteLine(credentials_json.ToString());//for debugging purposes
+            //Console.WriteLine(customer_json.ToString());//for debugging purposes
+
+            //adding the two objects to a third object
+
+            JObject objects_object = new JObject();
+            objects_object.Add("Credentials", credentials_json);
+            objects_object.Add("Customer", customer_json);
+            //Console.WriteLine("After credentials_json.Add(stuff) and console writeing!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");//for debugging purposes
+            
+            //getting the json string representation of the objects_object JObject 
+            string json = objects_object.ToString(); 
+            //Console.WriteLine(json);//for debugging purposes
             //the StringContent sets the string given as argument as the content of the HTTP request in the body part of it 
             var content = new StringContent(json, Encoding.UTF8, "application/json"); //application/json is to specify the media type / Content type 
+
+            //Console.WriteLine("After content, before response!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");//for debugging purposes
+            
             //PostAsync sends a post HTTP request to the server ( i.e. the RESTful web service written in php) 
             HttpResponseMessage response = await client.PostAsync(uri, content);
 
+            //Console.WriteLine("After response!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");//for debugging purposes 
+
             if (response.IsSuccessStatusCode) //the IsSuccessStatusCode property is to indicate whether the HTTP request succeeded or failed
-            {
-                Console.WriteLine("Request successfully saved.");//print out to the console for debugging purposes 
-            }
+             {
+                 Console.WriteLine("Request successfully saved.");//print out to the console for debugging purposes 
+             }
         }
     }
 }
