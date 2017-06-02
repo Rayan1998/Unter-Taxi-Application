@@ -124,7 +124,7 @@ namespace LocalUnterTaxiApp
             HttpResponseMessage response = await client.PostAsync(uri, content);
 
             //Console.WriteLine("After response!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");//for debugging purposes 
-
+            
             if (response.IsSuccessStatusCode) //the IsSuccessStatusCode property is to indicate whether the HTTP request succeeded or failed
              {
                  Console.WriteLine("Request successfully saved.");//print out to the console for debugging purposes 
