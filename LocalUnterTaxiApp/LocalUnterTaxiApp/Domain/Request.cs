@@ -1,18 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SQLite;
 
 namespace LocalUnterTaxiApp.Domain
 {
     public class Request
     {
+        
+        
         private int request_ID;
 
+        [PrimaryKey, AutoIncrement]
         public int Request_ID
         {
             get { return request_ID; }
             set { request_ID = value; }
         }
+
+
 
         private int customer_ID;
 

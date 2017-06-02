@@ -62,8 +62,29 @@ namespace LocalUnterTaxiApp
                     From_Location = "From somewhere else",
                     To_Location = "to somewhere else"
                 },
-
             };
+
+            SynchronousSQLite.Initialize();
+
+            SynchronousSQLite.addRequest(SynchronousSQLite.Connection, "sql lite saved from", "sql lite saved to");
+            SynchronousSQLite.addRequest(SynchronousSQLite.Connection, "sql lite saved from", "sql lite saved to");
+            SynchronousSQLite.addRequest(SynchronousSQLite.Connection, "sql lite saved from", "sql lite saved to");
+            SynchronousSQLite.addRequest(SynchronousSQLite.Connection, "sql lite saved from", "sql lite saved to");
+            SynchronousSQLite.addRequest(SynchronousSQLite.Connection, "sql lite saved from", "sql lite saved to");
+            SynchronousSQLite.addRequest(SynchronousSQLite.Connection, "sql lite saved from", "sql lite saved to");
+            SynchronousSQLite.addRequest(SynchronousSQLite.Connection, "sql lite saved from", "sql lite saved to");
+            SynchronousSQLite.addRequest(SynchronousSQLite.Connection, "sql lite saved from", "sql lite saved to");
+
+            List<Domain.Request> previousRequestsList = SynchronousSQLite.getRequests();
+
+            foreach (Domain.Request request in previousRequestsList)
+            {
+                Items.Add(request);
+            }
+
+
+            //Items = SynchronousSQLite.getRequests();
+
 
         }
 
