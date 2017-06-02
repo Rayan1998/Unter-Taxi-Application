@@ -58,6 +58,9 @@ namespace LocalUnterTaxiApp
             if (response.IsSuccessStatusCode) //the IsSuccessStatusCode property is to indicate whether the HTTP request succeeded or failed
             {
                 Console.WriteLine("Request successfully saved.");//print out to the console for debugging purposes 
+                SynchronousSQLite.Initialize();
+                SynchronousSQLite.addRequest(SynchronousSQLite.Connection, request.From_Location, request.To_Location);
+                
             }
 
         }
