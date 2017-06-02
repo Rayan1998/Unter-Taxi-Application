@@ -67,13 +67,7 @@ namespace LocalUnterTaxiApp
             SynchronousSQLite.Initialize();
 
             SynchronousSQLite.addRequest(SynchronousSQLite.Connection, "sql lite saved from", "sql lite saved to");
-            SynchronousSQLite.addRequest(SynchronousSQLite.Connection, "sql lite saved from", "sql lite saved to");
-            SynchronousSQLite.addRequest(SynchronousSQLite.Connection, "sql lite saved from", "sql lite saved to");
-            SynchronousSQLite.addRequest(SynchronousSQLite.Connection, "sql lite saved from", "sql lite saved to");
-            SynchronousSQLite.addRequest(SynchronousSQLite.Connection, "sql lite saved from", "sql lite saved to");
-            SynchronousSQLite.addRequest(SynchronousSQLite.Connection, "sql lite saved from", "sql lite saved to");
-            SynchronousSQLite.addRequest(SynchronousSQLite.Connection, "sql lite saved from", "sql lite saved to");
-            SynchronousSQLite.addRequest(SynchronousSQLite.Connection, "sql lite saved from", "sql lite saved to");
+            
 
             List<Domain.Request> previousRequestsList = SynchronousSQLite.getRequests();
 

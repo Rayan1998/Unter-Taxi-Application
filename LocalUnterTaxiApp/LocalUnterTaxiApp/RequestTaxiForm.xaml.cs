@@ -22,8 +22,11 @@ namespace LocalUnterTaxiApp
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await CallAddRest(); 
+            //REMOVE THIS COMMENT:
+            //await CallAddRest(); 
             Console.WriteLine("Button clicked");//only for debugging purposes 
+            SynchronousSQLite.Initialize();
+            SynchronousSQLite.addRequest(SynchronousSQLite.Connection, "TEST 2 from", "TEST 2 to");
         }
 
         /**

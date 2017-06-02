@@ -8,49 +8,43 @@ namespace LocalUnterTaxiApp.Domain
     public class Request
     {
         
-        
-        private int request_ID;
-
         [PrimaryKey, AutoIncrement]
         public int Request_ID
         {
-            get { return request_ID; }
-            set { request_ID = value; }
+            get;
+            set;
         }
-
-
-
-        private int customer_ID;
 
         public int Customer_ID
         {
-            get { return customer_ID; }
-            set { customer_ID = value; }
+            get;
+            set;
         }
 
-        private string from_Location;
 
         public string From_Location
         {
-            get { return from_Location; }
-            set { from_Location = value; }
+            get;
+            set;
         }
 
-        private string  to_Location;
 
         public string  To_Location 
         {
-            get { return to_Location; }
-            set { to_Location = value; }
+            get;
+            set;
         }
 
         public Request( int cust_ID, string from_loc, string to_loc)
         {
-            this.customer_ID = cust_ID;
-            this.from_Location = from_loc;
-            this.to_Location = to_loc;
+            this.Customer_ID = cust_ID;
+            this.From_Location = from_loc;
+            this.To_Location = to_loc;
         }
 
+        /**
+         * Empty constructor used for inputting requets into Observable collection
+         */ 
         public Request()
         {
 

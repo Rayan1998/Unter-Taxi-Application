@@ -6,78 +6,73 @@ namespace LocalUnterTaxiApp.Domain
 {
    public class Customer
     {
-        private int customerID;
 
         public int CustomerID
         {
-            get { return customerID; }
-            set { customerID = value; }
+            get;
+            set; 
         }
 
-        private string fName;
 
         public string FName
         {
-            get { return fName; }
-            set { fName = value; }
+            get;
+            set;
         }
 
-        private string lName;
 
         public string LName
         {
-            get { return lName; }
-            set { lName = value; }
+            get;
+            set;
         }
 
-        private string email;
 
         public string Email
         {
-            get { return email; }
-            set { email = value; }
+            get;
+            set;
         }
 
-        private string  password;
 
         public string  Password
         {
-            get { return password; }
-            set { password = value; }
+            get;
+            set;
         }
 
         private string phoneNb;
 
         public string PhoneNB
         {
-            get { return phoneNb; }
-            set { phoneNb = value; }
+            get;
+            set;
         }
 
-        private string preffered_Brand;
 
         public string Preffered_Brand
         {
-            get { return preffered_Brand; }
-            set { preffered_Brand = value; }
+            get;
+            set;
         }
 
-        private int priority;
 
         public int Priority
         {
-            get { return priority; }
-            set { priority = value; }
+            get;
+            set;
         }
 
-        private string username;
 
         public string Username
         {
-            get { return username; }
-            set { username = value; }
+            get;
+            set;
         }
 
+        /**
+         * Constructor
+         */ 
         public Customer(string f_name, string l_name, string e_mail,string username, string pass, string phone_NB, string preferred_brand)
         {
             FName = f_name;
@@ -89,9 +84,10 @@ namespace LocalUnterTaxiApp.Domain
             Preffered_Brand = preferred_brand;
             
         }
-        public Customer()
-        {
 
-        }
+        /**
+         * Empty constructor
+         */ 
+        public Customer(){}
     }
 }
