@@ -145,10 +145,17 @@ namespace LocalUnterTaxiApp
              }*/
         }
 
+        //needed for the  functions to send  confirmation email to customers 
         bool is_Sent = false;
+
+        /**
+         * creates MailMessage object, adds the fields for the mail message
+         * creates an SmtpClient object to gmail smtp server 
+         * sends the emails to customers from a special gmail for the unter development team 
+         */
         private void sendConfirmationEmail(string from, string to, string subject, string msg)
         {
-            Console.WriteLine("Start of method !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            //Console.WriteLine("Start of method !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"); //for debugging purposes 
             MailMessage mail_msg = new MailMessage();
             mail_msg.From = new MailAddress(from);
             mail_msg.To.Add(new MailAddress(to));
@@ -178,18 +185,26 @@ namespace LocalUnterTaxiApp
             }
         }
 
+        /**
+         * gets the token for the event of send email completion 
+         * prints out to the console any cancellation, errors, or success 
+         * set the boolean is_Sent to true or false based on the result of the transaction 
+         */ 
         private void sendCompletedCallback(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
-            Console.WriteLine("Start of handlerrrrr method !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            //Console.WriteLine("Start of handlerrrrr method !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"); //for debugging purposes 
             String token = (String)e.UserState;
+            //printing out if the event was cancelled
             if (e.Cancelled)
             {
                 Console.WriteLine("[{0}] Send was Cancelled",token);
             }
+            //printing out to the console if the event was completed with errors 
             if(e.Error!= null)
             {
                 Console.WriteLine("[{0}] {1}", token, e.Error.ToString());
             }
+            //printing out to the console if the event is successfully completed 
             else
             {
                 Console.WriteLine("Message sent.");
