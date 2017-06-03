@@ -13,7 +13,7 @@ namespace LocalUnterTaxiApp
 		{
 			InitializeComponent();
 
-			MainPage = new LocalUnterTaxiApp.Register();
+			MainPage = new LocalUnterTaxiApp.RequestTaxiForm();
 		}
 
 		protected override void OnStart ()

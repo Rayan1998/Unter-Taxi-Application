@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Android.Content;
 using LocalUnterTaxiApp.Domain;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -22,21 +23,26 @@ namespace LocalUnterTaxiApp
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await CallAddRest(); 
-            Console.WriteLine("Button clicked");//only for debugging purposes 
+           await  CallAddRest(); 
+           Console.WriteLine("Button clicked");//only for debugging purposes 
         }
 
         /**
          * creates instance of RestService class & invokes proper posting method 
          * this method has to be at least asynch
          */
-        public static async Task CallAddRest()
+        public async static Task CallAddRest()
         {
             Request request = new Request(2, "hardcoded from location", "to location");//to be removed in future enhancment, shld be replaced with a form filled by user
             //create instance of the HTTP  client class
             RestService restService = new RestService();
             //calling the post method on the created instance of the class 
             await restService.PostRequestAsync(request);
+
+
+            /* testing the email confirmation methods
+             RestService resT = new RestService();
+             resT.sendConfirmationEmail("unterdevelopmentteam@gmail.com","notruth500@gmail.com", "Confirmation for Registration", "Dear we would like to confirm your registration in our system");*/
         }
     }
 }

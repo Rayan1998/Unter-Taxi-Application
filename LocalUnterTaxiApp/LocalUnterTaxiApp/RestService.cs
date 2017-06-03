@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using Android.Content;
+using Android.Net;
 using LocalUnterTaxiApp.Domain;
 using Newtonsoft.Json.Linq;
+using Xamarin.Forms;
 
 //Author: Rayan El Hajj 
 
@@ -12,12 +17,12 @@ namespace LocalUnterTaxiApp
     /**
      * RestService creates an HTTP client with corresponding methods to be used throughout the application 
      * this class is a client of the RESTful web service for the system written on php and accessed on a remote Apache webserver 
-     */ 
-    class RestService 
+     */
+    class RestService
     {
 
         HttpClient client;
-        
+
         public RestService()
         {
             client = new HttpClient();
@@ -32,10 +37,10 @@ namespace LocalUnterTaxiApp
         public async Task PostRequestAsync(Request request)
         {
             string RestUrl = "http://360itsolutions.dk/RESTApi.php/request/";
-            var uri = new Uri(RestUrl);
+            var uri = new System.Uri(RestUrl);
             //creating JValue objects with the request fields 
             //the JValue class represents a value in JSON
-            JValue customer_ID = new JValue(request.Customer_ID); 
+            JValue customer_ID = new JValue(request.Customer_ID);
             JValue from_Location = new JValue(request.From_Location);
             JValue to_Location = new JValue(request.To_Location);
             //JObject represents a JSON Object 
@@ -50,14 +55,14 @@ namespace LocalUnterTaxiApp
             //the StringContent sets the string given as argument as the content of the HTTP request in the body part of it 
             var content = new StringContent(json, Encoding.UTF8, "application/json"); //application/json is to specify the media type / Content type 
             //PostAsync sends a post HTTP request to the server ( i.e. the RESTful web service written in php) 
-            HttpResponseMessage response = await client.PostAsync(uri,content);
+            HttpResponseMessage response = await client.PostAsync(uri, content);
 
             if (response.IsSuccessStatusCode) //the IsSuccessStatusCode property is to indicate whether the HTTP request succeeded or failed
             {
                 Console.WriteLine("Request successfully saved.");//print out to the console for debugging purposes 
                 SynchronousSQLite.Initialize();
-                SynchronousSQLite.addRequest(SynchronousSQLite.Connection, request.From_Location, request.To_Location);     
-                
+                SynchronousSQLite.addRequest(SynchronousSQLite.Connection, request.From_Location, request.To_Location);
+
             }
 
         }
@@ -66,11 +71,11 @@ namespace LocalUnterTaxiApp
          * posts a customer to the db using a RESTful web service 
          * prints out to the console in case of success
          * this method has to be asynchronous and to return Task that is a sort of threadpool 
-         */ 
+         */
         public async Task PostCustomerAsync(Customer customer)
         {
             string RestUrl = "http://360itsolutions.dk/RESTApi.php/_customer/";
-            var uri = new Uri(RestUrl);
+            var uri = new System.Uri(RestUrl);
             //Console.WriteLine("Before Javalues!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"); //for debugging purpose
 
             //creating JValue objects with the customer fields 
@@ -100,8 +105,8 @@ namespace LocalUnterTaxiApp
 
             //adding the JValue objects to the JObject with the reference credentials_json
             credentials_json.Add("Email", email);
-            credentials_json.Add("Username",username);
-            credentials_json.Add("Password",password);
+            credentials_json.Add("Username", username);
+            credentials_json.Add("Password", password);
 
 
             //Console.WriteLine("After credentials_json.Add(stuff)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");//for debugging purposes
@@ -114,24 +119,82 @@ namespace LocalUnterTaxiApp
             objects_object.Add("Credentials", credentials_json);
             objects_object.Add("Customer", customer_json);
             //Console.WriteLine("After credentials_json.Add(stuff) and console writeing!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");//for debugging purposes
-            
+
             //getting the json string representation of the objects_object JObject 
-            string json = objects_object.ToString(); 
+            string json = objects_object.ToString();
             //Console.WriteLine(json);//for debugging purposes
             //the StringContent sets the string given as argument as the content of the HTTP request in the body part of it 
             var content = new StringContent(json, Encoding.UTF8, "application/json"); //application/json is to specify the media type / Content type 
 
             //Console.WriteLine("After content, before response!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");//for debugging purposes
-            
+
             //PostAsync sends a post HTTP request to the server ( i.e. the RESTful web service written in php) 
             HttpResponseMessage response = await client.PostAsync(uri, content);
 
             //Console.WriteLine("After response!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");//for debugging purposes 
-            
-            if (response.IsSuccessStatusCode) //the IsSuccessStatusCode property is to indicate whether the HTTP request succeeded or failed
+
+            if (await response.Content.ReadAsStringAsync() == "true")
+            {
+                string from_Add = "unterdevelopmentteam@gmaiol.com";
+                sendConfirmationEmail(from_Add,customer.Email,"Confirmation for Registration","Dear "+customer.Username+"we would like to confirm your registration in our system");
+            }
+
+            /*if (response.IsSuccessStatusCode) //the IsSuccessStatusCode property is to indicate whether the HTTP request succeeded or failed
              {
                  Console.WriteLine("Request successfully saved.");//print out to the console for debugging purposes 
-             }
+             }*/
+        }
+
+        bool is_Sent = false;
+        private void sendConfirmationEmail(string from, string to, string subject, string msg)
+        {
+            Console.WriteLine("Start of method !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            MailMessage mail_msg = new MailMessage();
+            mail_msg.From = new MailAddress(from);
+            mail_msg.To.Add(new MailAddress(to));
+            mail_msg.Subject = subject;
+            mail_msg.Body = msg;
+
+            try
+            {
+               var smtp_client = new SmtpClient("smtp.gmail.com", 587)
+                {
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential("unterdevelopmentteam@gmail.com", "UnterApplication1234"),
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network
+                };
+                smtp_client.SendCompleted += new SendCompletedEventHandler(sendCompletedCallback);
+                string userState = "test message from acp ";
+                smtp_client.SendAsync(mail_msg, userState);
+            }
+            catch (System.Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                mail_msg = null;
+            }
+        }
+
+        private void sendCompletedCallback(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        {
+            Console.WriteLine("Start of handlerrrrr method !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            String token = (String)e.UserState;
+            if (e.Cancelled)
+            {
+                Console.WriteLine("[{0}] Send was Cancelled",token);
+            }
+            if(e.Error!= null)
+            {
+                Console.WriteLine("[{0}] {1}", token, e.Error.ToString());
+            }
+            else
+            {
+                Console.WriteLine("Message sent.");
+            }
+            is_Sent = true;
         }
     }
 }
