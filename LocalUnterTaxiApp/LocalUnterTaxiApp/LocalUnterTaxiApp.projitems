@@ -38,6 +38,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)RestService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Session.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SynchronousSQLite.cs" />
   </ItemGroup>
   <ItemGroup>

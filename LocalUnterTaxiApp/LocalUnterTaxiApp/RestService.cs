@@ -209,5 +209,38 @@ namespace LocalUnterTaxiApp
             }
             is_Sent = true;
         }
+
+        public async Task ValidateCredentials(string username, string password)
+        {
+            string URL = "http://360itsolutions.dk/RESTApi.php/credentials/validation";
+            var uri = new System.Uri(URL);
+            //creating JValue objects with the credentials 
+            //the JValue class represents a value in JSON
+            JValue userName = new JValue(username);
+            JValue passWord = new JValue(password);
+            //JObject represents a JSON Object 
+            JObject cred_Object = new JObject();
+            //adding the JValue objects to the JObject with the reference cred_Object
+            cred_Object.Add("Username", userName);
+            cred_Object.Add("Password", passWord);
+            //the StringContent sets the string given as argument as the content of the HTTP request in the body part of it 
+            string cred_json = cred_Object.ToString();
+            var content = new StringContent(cred_json, Encoding.UTF8,"application/json" );
+            //PostAsync sends a post HTTP request to the server ( i.e. the RESTful web service written in php) 
+            HttpResponseMessage response = await client.PostAsync(uri, content);
+            string response_msg= await response.Content.ReadAsStringAsync();
+            JArray response_array= JArray.Parse(response_msg);
+            if (response_array.HasValues== false) {
+                await Application.Current.MainPage.DisplayAlert("Login failed!", "Invalid username or password", "OK");
+            } else {
+                foreach (JObject item in response_array)
+                {
+                    int ID = Convert.ToInt16(item.GetValue("ID"));
+                    string _username = item.GetValue("Username").ToString();
+                    string _password = item.GetValue("Password").ToString();
+                    string email = item.GetValue("Email").ToString();
+                }
+            }
+        }
     }
 }
