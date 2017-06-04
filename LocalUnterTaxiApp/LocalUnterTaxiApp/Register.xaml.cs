@@ -42,10 +42,10 @@ namespace LocalUnterTaxiApp
          * invokes post method for the customer PostCustomerAsync()
          * this method should be async and return a Task which is a sort of Thread pool 
          */
-        public static async Task CallAddRest()
+        public async Task CallAddRest()
         {
-            Customer customer = new Customer("OH", "Right", "wewerehardcoding@stuff", "letmetakeaselfie", "yeahlethertakeaselfie", "1234567890", "Rise"); //(fName.Text, lName.Text, e_Mail.Text, userName.Text, passWord.Text, phoneNb.Text, "Audi");
-            Console.WriteLine(customer.FName);
+            Customer customer = new Customer(fName.Text, lName.Text, e_Mail.Text, userName.Text, passWord.Text, phoneNb.Text, BrandPicker.SelectedItem.ToString());//"OH", "Right", "wewerehardcoding@stuff", "letmetakeaselfie", "yeahlethertakeaselfie", "1234567890", "Rise"); //(
+            //Console.WriteLine(customer.FName);
             RestService rest = new RestService();
             await rest.PostCustomerAsync(customer);
         }

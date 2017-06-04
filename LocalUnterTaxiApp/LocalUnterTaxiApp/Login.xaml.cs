@@ -10,11 +10,21 @@ using Xamarin.Forms.Xaml;
 namespace LocalUnterTaxiApp
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LoginPage : ContentPage
+	public partial class Login : ContentPage
 	{
-		public LoginPage ()
+		public Login ()
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void register_btn_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void login_btn_Clicked(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

@@ -4,8 +4,6 @@ using System.Net.Http;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
-using Android.Content;
-using Android.Net;
 using LocalUnterTaxiApp.Domain;
 using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
