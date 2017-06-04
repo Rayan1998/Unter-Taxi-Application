@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.4
+VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LocalUnterTaxiApp", "LocalUnterTaxiApp\LocalUnterTaxiApp\LocalUnterTaxiApp.shproj", "{2B6C0A41-EDE9-47E9-856B-F92CD3241862}"
 EndProject
