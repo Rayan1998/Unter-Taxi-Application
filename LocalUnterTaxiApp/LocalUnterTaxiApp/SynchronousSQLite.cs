@@ -8,11 +8,16 @@ namespace LocalUnterTaxiApp
 {
     /**
      * This class provices connection to the SQLite database
-     * Besides this, it equip the developer with methods for adding requests to SQLite table and viewing all the locally saved requests.
+     * Besides this, it equip the developer with methods for adding requests to SQLite table and viewing all the 
+     * locally saved requests.
      * 
-     * The class and its methods are static ...
+     * The class and its methods are static. We could have chosen to do it differently, which would have worked, but 
+     * since the sqlite database is logically static, it makes sense to do the class for connecting to it as static.
      * 
      * Consider using SqliteOpenHelper??? 
+     * 
+     * Consider removing the try/catches since they are good for nothing. 
+     * They were just added for debugging purposes, and they make the code look messy.
      */
     public static class SynchronousSQLite
     {
@@ -42,7 +47,6 @@ namespace LocalUnterTaxiApp
 
         /**
          * This method initializes the SQLite database and table
-         * This needs to be called everytime 
          */ 
         public static void Initialize()
         {
@@ -78,9 +82,6 @@ namespace LocalUnterTaxiApp
             Domain.Request request = new Domain.Request { From_Location = from, To_Location = to };
             //We insert it into the database:
             db.Insert(request);
-
-
-            //Console.WriteLine("{0} == {1}", request.Request_ID, request.From_Location, request.To_Location);
         }
 
 
