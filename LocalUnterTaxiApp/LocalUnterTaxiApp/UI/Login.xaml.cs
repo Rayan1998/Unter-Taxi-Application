@@ -17,15 +17,15 @@ namespace LocalUnterTaxiApp
             InitializeComponent();
         }
 
-        private void register_btn_Clicked(object sender, EventArgs e)
-        {
-            Application.Current.MainPage = new NavigationPage(new Register());
-            // Navigation.PushAsync(new Register());
-        }
+
 
         private async void login_btn_Clicked(object sender, EventArgs e)
         {
             await callValidate();
+            if (Session.Current_Customer != null)
+            {
+                Application.Current.MainPage = new NavigationPage(new RequestTaxiForm());
+            }
         }
 
         private async Task callValidate()

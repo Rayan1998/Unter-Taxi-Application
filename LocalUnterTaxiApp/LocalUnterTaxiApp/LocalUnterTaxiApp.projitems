@@ -9,31 +9,31 @@
     <Import_RootNamespace>LocalUnterTaxiApp</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)UI\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Domain\Customer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Domain\Request.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ListViewPage1.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)UI\ListViewPage1.xaml.cs">
       <DependentUpon>ListViewPage1.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Login.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)UI\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)UI\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)previousRequestsPage.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)UI\previousRequestsPage.xaml.cs">
       <DependentUpon>previousRequestsPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Register.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)UI\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)RequestTaxiForm.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)UI\RequestTaxiForm.xaml.cs">
       <DependentUpon>RequestTaxiForm.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -42,43 +42,46 @@
     <Compile Include="$(MSBuildThisFileDirectory)SynchronousSQLite.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)UI\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Login.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)UI\App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)RequestTaxiForm.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)UI\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Register.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)UI\RequestTaxiForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)previousRequestsPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)UI\Register.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ListViewPage1.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)UI\previousRequestsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)UI\ListViewPage1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)UI\" />
   </ItemGroup>
 </Project>

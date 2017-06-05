@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:LocalUnterTaxiApp"
+             x:Class="LocalUnterTaxiApp.MainPage"
+             BackgroundImage="taxi.jpg">
+    <ContentPage.Content>
+
+        <StackLayout Spacing="200">
+            <Label Text="Welcome to unter Taxi Application!" TextColor="White" FontSize="Large" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+            <Grid ColumnSpacing="100" RowSpacing="30" HorizontalOptions="Center" VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="login_btn" Text="Login" TextColor="Black" BackgroundColor="White" BorderColor="Black" FontAttributes="Bold" FontSize="Default" Clicked="login_btn_Clicked" Grid.Column="0" Grid.Row="0" />
+                <Button x:Name="register_btn" Text="Register" TextColor="Black" BackgroundColor="White" BorderColor="Black" FontAttributes="Bold" FontSize="Default" Clicked="register_btn_Clicked" Grid.Column="0" Grid.Row="1" />
+
+            </Grid>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

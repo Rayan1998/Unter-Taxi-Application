@@ -89,5 +89,16 @@ namespace LocalUnterTaxiApp.Domain
          * Empty constructor
          */ 
         public Customer(){}
+
+        /**
+         * Constructor for Session  
+         */
+        public Customer(int id, string e_mail, string username, string pass)
+        {
+            CustomerID = id;
+            Email = e_mail;
+            Username = username;
+            Password = pass;
+        }
     }
 }

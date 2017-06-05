@@ -133,7 +133,7 @@ namespace LocalUnterTaxiApp
 
             if (await response.Content.ReadAsStringAsync() == "true")
             {
-                string from_Add = "unterdevelopmentteam@gmaiol.com";
+                string from_Add = "unterdevelopmentteam@gmail.com";
                 sendConfirmationEmail(from_Add,customer.Email,"Confirmation for Registration","Dear "+customer.Username+"we would like to confirm your registration in our system");
             }
 
@@ -239,7 +239,9 @@ namespace LocalUnterTaxiApp
                     string _username = item.GetValue("Username").ToString();
                     string _password = item.GetValue("Password").ToString();
                     string email = item.GetValue("Email").ToString();
+                    Session.Current_Customer = new Customer(ID,email,_username,_password);
                 }
+                
             }
         }
     }

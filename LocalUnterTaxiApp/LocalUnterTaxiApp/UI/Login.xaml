@@ -4,7 +4,7 @@
              x:Class="LocalUnterTaxiApp.Login"
              BackgroundImage="taxi.jpg">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Spacing="100">
 
             <Label Text="Welcome to unter Taxi Application!" TextColor="White" FontSize="Large" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
             <!--ColumSpacing and RowSpacing are the amount of space between columns & rows independently-->
@@ -31,7 +31,6 @@
                 <Label x:Name="password_lbl" Text="Password:" TextColor="White" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  Grid.Column="1" Grid.Row="2" />
                 <Entry x:Name="password_fld" IsPassword="True" PlaceholderColor="White" FontAttributes="Bold" BackgroundColor="White" Grid.Column="1" Grid.Row="3" />
                 <Button x:Name="login_btn" Text="Login" TextColor="Black" BackgroundColor="White" BorderColor="Black" FontAttributes="Bold" FontSize="Default" Clicked="login_btn_Clicked" Grid.Column="1" Grid.Row="4" />
-                <Button x:Name="register_btn" Text="Register" TextColor="Black" BackgroundColor="White" BorderColor="Black" FontAttributes="Bold" FontSize="Default" Clicked="register_btn_Clicked" Grid.Column="1" Grid.Row="5" />
             </Grid>
         </StackLayout>
     </ContentPage.Content>
