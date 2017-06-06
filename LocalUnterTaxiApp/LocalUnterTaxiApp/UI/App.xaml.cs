@@ -13,7 +13,7 @@ namespace LocalUnterTaxiApp
 		{
 			InitializeComponent();
 
-			MainPage = new NavigationPage( new LocalUnterTaxiApp.MainPage());
+            MainPage = new MasterDetailPage(); // new NavigationPage( new LocalUnterTaxiApp.MainPage());
 		}
 
 		protected override void OnStart ()

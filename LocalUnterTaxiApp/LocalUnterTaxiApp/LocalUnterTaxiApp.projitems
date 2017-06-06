@@ -14,10 +14,6 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Domain\Customer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Domain\Request.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)UI\ListViewPage1.xaml.cs">
-      <DependentUpon>ListViewPage1.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UI\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -76,7 +72,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)UI\ListViewPage1.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)UI\MasterDetailPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
