@@ -72,7 +72,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)UI\MasterDetailPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)UI\MasterDetailPage1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
