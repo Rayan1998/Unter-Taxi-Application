@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using LocalUnterTaxiApp.UI;
 using Xamarin.Forms;
 
 namespace LocalUnterTaxiApp
@@ -13,7 +13,8 @@ namespace LocalUnterTaxiApp
 		{
 			InitializeComponent();
 
-            MainPage = new NavigationPage(new LocalUnterTaxiApp );//new NavigationPage( new LocalUnterTaxiApp.MainPage());
+            MainPage =  new HomePage();
+          
 		}
 
 		protected override void OnStart ()

@@ -9,12 +9,13 @@ using Xamarin.Forms.Xaml;
 
 namespace LocalUnterTaxiApp.UI
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1Tab1 : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class HomePage : TabbedPage
     {
-        public Page1Tab1()
+        public HomePage ()
         {
-			InitializeComponent ();
+            InitializeComponent();
+           
         }
     }
 }
