@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LocalUnterTaxiApp.Login"
              BackgroundImage="taxi.jpg">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Test"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Spacing="100">
 

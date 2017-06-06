@@ -9,6 +9,7 @@ using Newtonsoft.Json.Linq;
 using Xamarin.Forms;
 
 //Author: Rayan El Hajj 
+//new IP Add: 87.54.141.140
 
 namespace LocalUnterTaxiApp
 {
@@ -34,7 +35,7 @@ namespace LocalUnterTaxiApp
          */
         public async Task PostRequestAsync(Request request)
         {
-            string RestUrl = "http://360itsolutions.dk/RESTApi.php/request/";
+            string RestUrl = "http://87.54.141.140/WebService/RESTApi.php/request"; //"http://360itsolutions.dk/RESTApi.php/request/";
             var uri = new System.Uri(RestUrl);
             //creating JValue objects with the request fields 
             //the JValue class represents a value in JSON
@@ -72,7 +73,7 @@ namespace LocalUnterTaxiApp
          */
         public async Task PostCustomerAsync(Customer customer)
         {
-            string RestUrl = "http://360itsolutions.dk/RESTApi.php/_customer/";
+            string RestUrl = "http://87.54.141.140/WebService/RESTApi.php/_customer";//"http://360itsolutions.dk/RESTApi.php/_customer/";
             var uri = new System.Uri(RestUrl);
             //Console.WriteLine("Before Javalues!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"); //for debugging purpose
 
@@ -212,7 +213,7 @@ namespace LocalUnterTaxiApp
 
         public async Task ValidateCredentials(string username, string password)
         {
-            string URL = "http://360itsolutions.dk/RESTApi.php/credentials/validation";
+            string URL = "http://87.54.141.140/WebService/RESTApi.php/credentials/validation"; //"http://360itsolutions.dk/RESTApi.php/credentials/validation";
             var uri = new System.Uri(URL);
             //creating JValue objects with the credentials 
             //the JValue class represents a value in JSON
