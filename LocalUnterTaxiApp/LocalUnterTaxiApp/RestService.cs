@@ -213,6 +213,8 @@ namespace LocalUnterTaxiApp
 
         public async Task ValidateCredentials(string username, string password)
         {
+            Console.WriteLine("Starttt of methodddd!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            Console.WriteLine(username + password);
             string URL = "http://87.54.141.140/WebService/RESTApi.php/credentials/validation"; //"http://360itsolutions.dk/RESTApi.php/credentials/validation";
             var uri = new System.Uri(URL);
             //creating JValue objects with the credentials 
@@ -226,20 +228,28 @@ namespace LocalUnterTaxiApp
             cred_Object.Add("Password", passWord);
             //the StringContent sets the string given as argument as the content of the HTTP request in the body part of it 
             string cred_json = cred_Object.ToString();
+            Console.WriteLine(cred_json);
             var content = new StringContent(cred_json, Encoding.UTF8,"application/json" );
             //PostAsync sends a post HTTP request to the server ( i.e. the RESTful web service written in php) 
             HttpResponseMessage response = await client.PostAsync(uri, content);
             string response_msg= await response.Content.ReadAsStringAsync();
+            Console.WriteLine(response_msg);
             JArray response_array= JArray.Parse(response_msg);
+            Console.WriteLine(response_array.ToString());
             if (response_array.HasValues== false) {
                 await Application.Current.MainPage.DisplayAlert("Login failed!", "Invalid username or password", "OK");
+                Console.WriteLine("in the if statement!!!!!!!!!!!!!!");
             } else {
                 foreach (JObject item in response_array)
                 {
-                    int ID = Convert.ToInt16(item.GetValue("ID"));
+                    int ID =(int)(item.GetValue("ID"));
+                    Console.WriteLine(ID + "!!!!!!!!");
                     string _username = item.GetValue("Username").ToString();
+                    Console.WriteLine(_username);
                     string _password = item.GetValue("Password").ToString();
+                    Console.WriteLine(_password);
                     string email = item.GetValue("Email").ToString();
+                    Console.WriteLine(email);
                     Session.Current_Customer = new Customer(ID,email,_username,_password);
                 }
                 

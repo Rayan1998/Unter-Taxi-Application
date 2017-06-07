@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using LocalUnterTaxiApp.UI;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -24,7 +24,7 @@ namespace LocalUnterTaxiApp
             await callValidate();
             if (Session.Current_Customer != null)
             {
-                Application.Current.MainPage = new NavigationPage(new RequestTaxiForm());
+                Application.Current.MainPage = new HomePage();
             }
         }
 

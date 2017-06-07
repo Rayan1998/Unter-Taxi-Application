@@ -13,7 +13,11 @@ namespace LocalUnterTaxiApp
 		{
 			InitializeComponent();
 
-            MainPage =  new HomePage();
+            MainPage = new NavigationPage( new MainPage())
+            {
+                BarBackgroundColor = Color.FromRgb(255, 204, 0),//this color is yellow but not too bright 
+                BarTextColor=Color.Black,
+            };
           
 		}
 

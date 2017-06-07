@@ -15,7 +15,8 @@ namespace LocalUnterTaxiApp.UI
         public HomePage ()
         {
             InitializeComponent();
-           
+            BarBackgroundColor = Color.FromRgb(255, 204, 0);
+            BarTextColor = Color.Black;
         }
     }
 }

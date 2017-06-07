@@ -5,7 +5,10 @@
              x:Class="LocalUnterTaxiApp.UI.HomePage">
 
     <!--Pages can be added as references or inline-->
+
+
     <TabbedPage.Children>
-        <me:previousRequestsPage Title="Ride History"/>
+        <me:previousRequestsPage Title="History"/>
+        <me:RequestTaxiForm Title="Order"/>
     </TabbedPage.Children>
 </TabbedPage>

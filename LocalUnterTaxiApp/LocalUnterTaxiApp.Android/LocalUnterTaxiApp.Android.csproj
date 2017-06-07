@@ -119,9 +119,6 @@
     <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\Icon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
     <AndroidResource Include="Resources\layout\Toolbar.axml" />
     <AndroidResource Include="Resources\values\styles.xml" />
@@ -136,7 +133,7 @@
     <AndroidResource Include="Resources\Drawable\taxi1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\ic_material_product_icon_192pxldpi.png" />
+    <AndroidResource Include="Resources\Drawable\Icon.png" />
   </ItemGroup>
   <Import Project="..\LocalUnterTaxiApp\LocalUnterTaxiApp.projitems" Label="Shared" Condition="Exists('..\LocalUnterTaxiApp\LocalUnterTaxiApp.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

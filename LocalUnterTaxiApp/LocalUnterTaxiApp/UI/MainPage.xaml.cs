@@ -12,7 +12,8 @@ namespace LocalUnterTaxiApp
 		public MainPage()
 		{
 			InitializeComponent();
-		}
+
+        }
 
         private void login_btn_Clicked(object sender, EventArgs e)
         {
