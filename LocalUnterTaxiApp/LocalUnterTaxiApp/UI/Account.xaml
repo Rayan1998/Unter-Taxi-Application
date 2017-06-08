@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LocalUnterTaxiApp.UI.Account">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <!-- <Label Text="Register" TextColor="Black" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Start" HorizontalOptions="Center"/>-->
+                <Grid RowSpacing="50" ColumnSpacing="30" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="First Name" TextColor="Black" FontSize="Default" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
+                    <Entry x:Name="fName" TextColor="Black" BackgroundColor="White" PlaceholderColor="Black" Grid.Row="0" Grid.Column="1"/>
+                    <Label Text="Last Name" TextColor="Black" FontSize="Default" FontAttributes="Bold" Grid.Row="1" Grid.Column="0"/>
+                    <Entry x:Name="lName" TextColor="Black" BackgroundColor="White" PlaceholderColor="Black" Grid.Row="1" Grid.Column="1"/>
+                    <Label Text="E-mail" TextColor="Black" FontSize="Default" FontAttributes="Bold" Grid.Row="2" Grid.Column="0"/>
+                    <Entry x:Name="e_Mail" TextColor="Black" BackgroundColor="White" PlaceholderColor="Black" Grid.Row="2" Grid.Column="1"/>
+                    <Label Text="Username" TextColor="Black" FontSize="Default" FontAttributes="Bold" Grid.Row="3" Grid.Column="0"/>
+                    <Entry x:Name="userName" TextColor="Black" BackgroundColor="White" PlaceholderColor="Black" Grid.Row="3" Grid.Column="1"/>
+                    <Label Text="Password" TextColor="Black" FontSize="Default" FontAttributes="Bold" Grid.Row="4" Grid.Column="0"/>
+                    <Entry x:Name="passWord" TextColor="Black" BackgroundColor="White" PlaceholderColor="Black" IsPassword="True" Grid.Row="4" Grid.Column="1"/>
+                    <Label Text="Phone Number" TextColor="Black" FontSize="Default" FontAttributes="Bold" Grid.Row="5" Grid.Column="0"/>
+                    <Entry x:Name="phoneNb" TextColor="Black" BackgroundColor="White" PlaceholderColor="Black" Grid.Row="5" Grid.Column="1"  />
+                    <Label Text="Preffered Brand" TextColor="Black" FontSize="Default" FontAttributes="Bold" Grid.Row="6" Grid.Column="0"/>
+                    <Picker x:Name="BrandPicker" Title="Select a Brand" Grid.Row="6" Grid.Column="1">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Audi</x:String>
+                                <x:String>Mercedes</x:String>
+                                <x:String>BMW</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Button Text="Save Changes" TextColor="Black" BorderColor="White" BackgroundColor="#ffcc00" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Clicked="Register_Btn_Clicked" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

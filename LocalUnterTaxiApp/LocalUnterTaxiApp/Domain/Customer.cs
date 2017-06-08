@@ -7,11 +7,20 @@ namespace LocalUnterTaxiApp.Domain
    public class Customer
     {
 
-        public int CustomerID
+        public int CredentialsID
         {
             get;
             set; 
         }
+
+        private int customerID;
+
+        public int CustomerID
+        {
+            get { return customerID; }
+            set { customerID = value; }
+        }
+
 
 
         public string FName
@@ -95,7 +104,7 @@ namespace LocalUnterTaxiApp.Domain
          */
         public Customer(int id, string e_mail, string username, string pass)
         {
-            CustomerID = id;
+            CredentialsID = id;
             Email = e_mail;
             Username = username;
             Password = pass;

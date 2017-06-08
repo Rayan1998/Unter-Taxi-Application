@@ -10,5 +10,6 @@
     <TabbedPage.Children>
         <me:previousRequestsPage Title="History"/>
         <me:RequestTaxiForm Title="Order"/>
+        <me:
     </TabbedPage.Children>
 </TabbedPage>

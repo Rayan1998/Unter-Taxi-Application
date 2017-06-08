@@ -32,8 +32,8 @@ namespace LocalUnterTaxiApp
          * this method has to be at least asynch
          */
         public async static Task CallAddRest()
-        {
-            Request request = new Request(2, "hardcoded from location", "to location");//to be removed in future enhancment, shld be replaced with a form filled by user
+        {   
+            Request request = new Request(Session.Current_Customer.CredentialsID, "hardcoded from location", "to location");//to be removed in future enhancment, shld be replaced with a form filled by user
             //create instance of the HTTP  client class
             RestService restService = new RestService();
             //calling the post method on the created instance of the class 

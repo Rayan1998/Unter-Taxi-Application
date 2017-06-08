@@ -35,17 +35,17 @@ namespace LocalUnterTaxiApp
          */
         public async Task PostRequestAsync(Request request)
         {
-            string RestUrl = "http://87.54.141.140/WebService/RESTApi.php/request"; //"http://360itsolutions.dk/RESTApi.php/request/";
+            string RestUrl = "http://87.54.141.140/WebService/RESTApi.php/request"; 
             var uri = new System.Uri(RestUrl);
             //creating JValue objects with the request fields 
             //the JValue class represents a value in JSON
-            JValue customer_ID = new JValue(request.Customer_ID);
+            JValue credentials_ID = new JValue(request.Credentials_ID);
             JValue from_Location = new JValue(request.From_Location);
             JValue to_Location = new JValue(request.To_Location);
             //JObject represents a JSON Object 
             JObject request_json = new JObject();
             //adding the JValue objects to the JObject with the reference request_json
-            request_json.Add("FK_Customer_ID", customer_ID);
+            request_json.Add("FK_credentials_ID", credentials_ID);
             request_json.Add("From_Location", from_Location);
             request_json.Add("To_Location", to_Location);
             //setting the json string as the string representation of the request_json JObject
@@ -56,12 +56,16 @@ namespace LocalUnterTaxiApp
             //PostAsync sends a post HTTP request to the server ( i.e. the RESTful web service written in php) 
             HttpResponseMessage response = await client.PostAsync(uri, content);
 
-            if (response.IsSuccessStatusCode) //the IsSuccessStatusCode property is to indicate whether the HTTP request succeeded or failed
+
+            if (await response.Content.ReadAsStringAsync() == "true")
             {
-                Console.WriteLine("Request successfully saved.");//print out to the console for debugging purposes 
                 SynchronousSQLite.Initialize();
                 SynchronousSQLite.addRequest(SynchronousSQLite.Connection, request.From_Location, request.To_Location);
-
+                await Application.Current.MainPage.DisplayAlert("Success", "Dear" + Session.Current_Customer.Username + ",\n We sent a request to the dispatcher with the information,\n Confirmation on order will be sent to the email address: " + Session.Current_Customer.Email, "OK");
+            }
+                if (response.IsSuccessStatusCode) //the IsSuccessStatusCode property is to indicate whether the HTTP request succeeded or failed
+            {
+                Console.WriteLine("Request successfully saved.");//print out to the console for debugging purposes 
             }
 
         }
@@ -73,7 +77,7 @@ namespace LocalUnterTaxiApp
          */
         public async Task PostCustomerAsync(Customer customer)
         {
-            string RestUrl = "http://87.54.141.140/WebService/RESTApi.php/_customer";//"http://360itsolutions.dk/RESTApi.php/_customer/";
+            string RestUrl = "http://87.54.141.140/WebService/RESTApi.php/_customer";
             var uri = new System.Uri(RestUrl);
             //Console.WriteLine("Before Javalues!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"); //for debugging purpose
 

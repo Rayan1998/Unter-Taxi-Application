@@ -7,7 +7,7 @@ namespace LocalUnterTaxiApp.Domain
 {
     public class Request
     {
-        
+
         [PrimaryKey, AutoIncrement]
         public int Request_ID
         {
@@ -21,6 +21,15 @@ namespace LocalUnterTaxiApp.Domain
             set;
         }
 
+        private int credentials_ID;
+
+
+        public int Credentials_ID
+        {
+            get { return credentials_ID; }
+            set { credentials_ID = value; }
+        }
+
 
         public string From_Location
         {
@@ -29,13 +38,13 @@ namespace LocalUnterTaxiApp.Domain
         }
 
 
-        public string  To_Location 
+        public string To_Location
         {
             get;
             set;
         }
 
-        public Request( int cust_ID, string from_loc, string to_loc)
+        public Request(int cust_ID, string from_loc, string to_loc)
         {
             this.Customer_ID = cust_ID;
             this.From_Location = from_loc;
@@ -44,7 +53,7 @@ namespace LocalUnterTaxiApp.Domain
 
         /**
          * Empty constructor used for inputting requets into Observable collection
-         */ 
+         */
         public Request()
         {
 
