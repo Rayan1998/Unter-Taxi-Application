@@ -21,13 +21,13 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Label Text="First Name" TextColor="Black" FontSize="Default" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
-                    <Entry x:Name="fName" TextColor="Black" BackgroundColor="White" PlaceholderColor="Black" Grid.Row="0" Grid.Column="1"/>
+                    <Entry x:Name="fName"  TextColor="Black" BackgroundColor="White" PlaceholderColor="Black" Grid.Row="0" Grid.Column="1" />
                     <Label Text="Last Name" TextColor="Black" FontSize="Default" FontAttributes="Bold" Grid.Row="1" Grid.Column="0"/>
                     <Entry x:Name="lName" TextColor="Black" BackgroundColor="White" PlaceholderColor="Black" Grid.Row="1" Grid.Column="1"/>
                     <Label Text="E-mail" TextColor="Black" FontSize="Default" FontAttributes="Bold" Grid.Row="2" Grid.Column="0"/>
                     <Entry x:Name="e_Mail" TextColor="Black" BackgroundColor="White" PlaceholderColor="Black" Grid.Row="2" Grid.Column="1"/>
                     <Label Text="Username" TextColor="Black" FontSize="Default" FontAttributes="Bold" Grid.Row="3" Grid.Column="0"/>
-                    <Entry x:Name="userName" TextColor="Black" BackgroundColor="White" PlaceholderColor="Black" Grid.Row="3" Grid.Column="1"/>
+                    <Entry x:Name="userName"  TextColor="Black" BackgroundColor="White" PlaceholderColor="Black" Grid.Row="3" Grid.Column="1"/>
                     <Label Text="Password" TextColor="Black" FontSize="Default" FontAttributes="Bold" Grid.Row="4" Grid.Column="0"/>
                     <Entry x:Name="passWord" TextColor="Black" BackgroundColor="White" PlaceholderColor="Black" IsPassword="True" Grid.Row="4" Grid.Column="1"/>
                     <Label Text="Phone Number" TextColor="Black" FontSize="Default" FontAttributes="Bold" Grid.Row="5" Grid.Column="0"/>
@@ -43,6 +43,7 @@
                         </Picker.ItemsSource>
                     </Picker>
                     <Button x:Name="save_Btn" Text="Save Changes" TextColor="Black" BorderColor="White" BackgroundColor="#ffcc00" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Clicked="Save_Btn_Clicked" />
+                    <Button x:Name="deactivate_Btn" Text="LDeactivate Account" TextColor="Black" BorderColor="White" BackgroundColor="#ffcc00" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Clicked="deactivate_Btn_Clicked" />
                     <Button x:Name="logout_Btn" Text="Logout" TextColor="Black" BorderColor="White" BackgroundColor="#ffcc00" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Clicked="logout_Btn_Clicked" />
                 </Grid>
             </StackLayout>

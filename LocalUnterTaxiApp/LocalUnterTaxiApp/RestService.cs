@@ -217,9 +217,9 @@ namespace LocalUnterTaxiApp
 
         public async Task ValidateCredentials(string username, string password)
         {
-            Console.WriteLine("Starttt of methodddd!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            Console.WriteLine(username + password);
-            string URL = "http://87.54.141.140/WebService/RESTApi.php/credentials/validation"; //"http://360itsolutions.dk/RESTApi.php/credentials/validation";
+            //Console.WriteLine("Starttt of methodddd!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"); // for debugging purposes
+            //Console.WriteLine(username + password);// for debugging purposes
+            string URL = "http://87.54.141.140/WebService/RESTApi.php/credentials/validation";
             var uri = new System.Uri(URL);
             //creating JValue objects with the credentials 
             //the JValue class represents a value in JSON
@@ -242,12 +242,13 @@ namespace LocalUnterTaxiApp
             Console.WriteLine(response_array.ToString());
             if (response_array.HasValues== false) {
                 await Application.Current.MainPage.DisplayAlert("Login failed!", "Invalid username or password", "OK");
-                Console.WriteLine("in the if statement!!!!!!!!!!!!!!");
-            } else {
+                //Console.WriteLine("in the if statement!!!!!!!!!!!!!!");// for debugging purposes
+            }
+            else {
                 foreach (JObject item in response_array)
                 {
                     int ID =(int)(item.GetValue("ID"));
-                    Console.WriteLine(ID + "!!!!!!!!");
+                    //Console.WriteLine(ID + "!!!!!!!!");// for debugging purposes
                     string _username = item.GetValue("Username").ToString();
                     Console.WriteLine(_username);
                     string _password = item.GetValue("Password").ToString();
@@ -257,6 +258,32 @@ namespace LocalUnterTaxiApp
                     Session.Current_Customer = new Customer(ID,email,_username,_password);
                 }
                 
+            }
+        }
+
+        public async Task DeactivateAccount(int credentials_ID)
+        {
+            string URL = "http://87.54.141.140/WebService/RESTApi.php/credentials/"+credentials_ID;
+            var uri = new System.Uri(URL);
+            /*JValue cred_ID = new JValue(credentials_ID);
+            JObject json_Obj = new JObject();
+            json_Obj.Add("ID", cred_ID);
+            string json = json_Obj.ToString();
+            var content = new StringContent(json,Encoding.UTF8,"application/json");*/
+            HttpResponseMessage response = await client.DeleteAsync(uri);
+            string response_msg = await response.Content.ReadAsStringAsync();
+            if (response_msg.Contains("true"))
+            {
+                Application.Current.MainPage= new NavigationPage(new MainPage())
+                {
+                    BarBackgroundColor = Color.FromRgb(255, 204, 0),//this color is yellow but not too bright 
+                    BarTextColor = Color.Black,
+                };
+
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Failed!", "Failed to deactivate the Account,\n Please Try again later!", "OK");
             }
         }
     }
