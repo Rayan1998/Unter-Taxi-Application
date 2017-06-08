@@ -31,7 +31,7 @@
                 <Label x:Name="username_lbl" Text="Username:" TextColor="Black" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Default" FontAttributes="Bold"  Grid.Column="1" Grid.Row="0" />
                 <Entry x:Name="username_fld" BackgroundColor="White" PlaceholderColor="Black" FontAttributes="Italic" Grid.Column="1" Grid.Row="1" />
                 <Label x:Name="password_lbl" Text="Password:" TextColor="Black" FontSize="Default" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  Grid.Column="1" Grid.Row="2" />
-                <Entry x:Name="password_fld" IsPassword="True" PlaceholderColor="Black" FontAttributes="Bold" BackgroundColor="White" Grid.Column="1" Grid.Row="3" />
+                <Entry x:Name="password_fld" IsPassword="True" PlaceholderColor="Black"  BackgroundColor="White" Grid.Column="1" Grid.Row="3" />
                 <Button x:Name="login_btn" Text="Login" TextColor="Black" BackgroundColor="#ffcc00" BorderColor="Black" FontAttributes="Bold" FontSize="Default" Clicked="login_btn_Clicked" Grid.Column="1" Grid.Row="4" />
             </Grid>
         </StackLayout>

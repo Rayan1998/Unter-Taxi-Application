@@ -8,7 +8,6 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <!-- <Label Text="Register" TextColor="Black" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Start" HorizontalOptions="Center"/>-->
                 <Grid RowSpacing="50" ColumnSpacing="30" HorizontalOptions="Center" VerticalOptions="Center">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>

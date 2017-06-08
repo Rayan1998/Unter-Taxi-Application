@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LocalUnterTaxiApp.UI.Account">
+             x:Class="LocalUnterTaxiApp.Account">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <!-- <Label Text="Register" TextColor="Black" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Start" HorizontalOptions="Center"/>-->
                 <Grid RowSpacing="50" ColumnSpacing="30" HorizontalOptions="Center" VerticalOptions="Center">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
@@ -42,7 +42,8 @@
                             </x:Array>
                         </Picker.ItemsSource>
                     </Picker>
-                    <Button Text="Save Changes" TextColor="Black" BorderColor="White" BackgroundColor="#ffcc00" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Clicked="Register_Btn_Clicked" />
+                    <Button x:Name="save_Btn" Text="Save Changes" TextColor="Black" BorderColor="White" BackgroundColor="#ffcc00" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Clicked="Save_Btn_Clicked" />
+                    <Button x:Name="logout_Btn" Text="Logout" TextColor="Black" BorderColor="White" BackgroundColor="#ffcc00" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Clicked="logout_Btn_Clicked" />
                 </Grid>
             </StackLayout>
         </ScrollView>
