@@ -232,14 +232,14 @@ namespace LocalUnterTaxiApp
             cred_Object.Add("Password", passWord);
             //the StringContent sets the string given as argument as the content of the HTTP request in the body part of it 
             string cred_json = cred_Object.ToString();
-            Console.WriteLine(cred_json);
+            //Console.WriteLine(cred_json);//for debugging purposes 
             var content = new StringContent(cred_json, Encoding.UTF8,"application/json" );
             //PostAsync sends a post HTTP request to the server ( i.e. the RESTful web service written in php) 
             HttpResponseMessage response = await client.PostAsync(uri, content);
             string response_msg= await response.Content.ReadAsStringAsync();
-            Console.WriteLine(response_msg);
+            //Console.WriteLine(response_msg);//for debugging purposes 
             JArray response_array= JArray.Parse(response_msg);
-            Console.WriteLine(response_array.ToString());
+            //Console.WriteLine(response_array.ToString());// for debugging purposes 
             if (response_array.HasValues== false) {
                 await Application.Current.MainPage.DisplayAlert("Login failed!", "Invalid username or password", "OK");
                 //Console.WriteLine("in the if statement!!!!!!!!!!!!!!");// for debugging purposes
@@ -261,15 +261,15 @@ namespace LocalUnterTaxiApp
             }
         }
 
+        /**
+         * Calling the RESTApi.php to deactivate the account for a customer 
+         * it is done by flipping isActive boolean in credentials table in the database 
+         */ 
         public async Task DeactivateAccount(int credentials_ID)
         {
             string URL = "http://87.54.141.140/WebService/RESTApi.php/credentials/"+credentials_ID;
             var uri = new System.Uri(URL);
-            /*JValue cred_ID = new JValue(credentials_ID);
-            JObject json_Obj = new JObject();
-            json_Obj.Add("ID", cred_ID);
-            string json = json_Obj.ToString();
-            var content = new StringContent(json,Encoding.UTF8,"application/json");*/
+            
             HttpResponseMessage response = await client.DeleteAsync(uri);
             string response_msg = await response.Content.ReadAsStringAsync();
             if (response_msg.Contains("true"))
